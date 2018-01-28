@@ -258,7 +258,8 @@ class Search extends PureComponent {
           styles.container,
           this.props.backgroundColor && {
             backgroundColor: this.props.backgroundColor
-          }
+          },
+          this.props.containerStyle && this.props.containerStyle
         ]}
         onLayout={this.onLayout}
       >
@@ -489,6 +490,7 @@ Search.propTypes = {
   /**
      * styles
      */
+  containerStyle: View.propTypes.style,
   backgroundColor: PropTypes.string,
   placeholderTextColor: PropTypes.string,
   titleCancelColor: PropTypes.string,
