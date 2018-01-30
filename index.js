@@ -490,7 +490,7 @@ Search.propTypes = {
   /**
      * styles
      */
-  containerStyle: ViewPropStyles.style,
+  containerStyle: ViewPropTypes.style,
   backgroundColor: PropTypes.string,
   placeholderTextColor: PropTypes.string,
   titleCancelColor: PropTypes.string,
