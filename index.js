@@ -74,8 +74,7 @@ class Search extends PureComponent {
   componentDidMount() {
     if(this.autoFocus) {
       this.setState({expanded: true})
-      this.refs.input_keyword._component.focus();
-
+      this.onFocus(true);
     }
   }
 
@@ -125,12 +124,12 @@ class Search extends PureComponent {
      * onFocus
      * async await
      */
-  onFocus = async () => {
+  onFocus = async (mandatory) => {
     this.props.beforeFocus && (await this.props.beforeFocus());
     this.refs.input_keyword._component.isFocused &&
       (await this.refs.input_keyword._component.focus());
     await this.setState(prevState => {
-      return { expanded: !prevState.expanded };
+      return { expanded: mandatory || !prevState.expanded };
     });
     await this.expandAnimation();
     this.props.onFocus && (await this.props.onFocus(this.state.keyword));
